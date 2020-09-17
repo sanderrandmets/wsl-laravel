@@ -10,31 +10,28 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
-        <style>
-           
-        </style>
     </head>
     <body class="p-12">
        <table class="table-auto w-full">
             <thead>
                 <tr>
-                    <td>Pealkiri</td>
+                    <td class="px-4 py-2">Pealkiri</td>
 
-                    <td>Aasta</td>
+                    <td class="px-4 py-2"><a href="?sort=release_date">Aasta</a></td>
 
-                    <td>Keel</td>
+                    <td class="px-4 py-2"><a href="?sort=language">Keel</a></td>
 
-                    <td>Hind</td>
+                    <td class="px-4 py-2"><a href="?sort=price">Hind</a></td>
 
-                    <td>Laoseis</td>
+                    <td class="px-4 py-2"><a href="?sort=stock_saldo">Laoseis</a></td>
 
-                    <td>Lehekülgi</td>
+                    <td class="px-4 py-2"><a href="?sort=release_date">Lehekülgi</a></td>
 
-                    <td>Tüüp</td>
-                </tr>            
+                    <td class="px-4 py-2"><a href="?sort=release_date">Tüüp</a></td>
+                </tr>
             </thead>
             <tbody>
-            
+
                 @foreach($books as $book)
 
                 <tr>
@@ -51,14 +48,16 @@
                     <td class="border px-4 py-2">{{ $book->pages }}</td>
 
                     <td class="border px-4 py-2">{{ $book->type }}</td>
-                </tr>  
+                </tr>
 
                 @endforeach
 
             </tbody>
 
        </table>
-
+<div>
+{{ $books->links() }}
+</div>
     </body>
 
 </html>

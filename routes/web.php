@@ -18,9 +18,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    //$books = App\Book::paginate(20);
+    //$books = Book::where('language', 'Swahili')->paginate(15);
+
+    if (request()->has('sort')) {
+        $books = Book::orderBy(request()->query('sort'))->paginate(20);
+    } else {
+        $books = Book::paginate(20);
+    }
     //return view('welcome');
     //return DB::table('books')->where('language', 'Swahili')->get();
-    $books = Book::where('language', 'Swahili')->get();
+    //$books = Book::where('language', 'Swahili')->get();
 
     return view('welcome', ['books' => $books]);
 });
