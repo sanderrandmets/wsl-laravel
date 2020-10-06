@@ -1,22 +1,13 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.index')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <title>Laravel</title>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+@section('content')
 
-    <!-- Styles -->
-</head>
 
-<body class="p-12">
+<div class="p-12">
     <table class="table-auto w-full">
-        <thead>
+        <thead class="font-bold">
             <tr>
                 <td class="px-4 py-2"><a href="?sort=title&order={{ $order }}">Pealkiri</a></td>
                 <td class="px-4 py-2 w-32">Autor</td>
@@ -48,6 +39,4 @@
     <div>
         {{ $books->withQueryString()->links() }}
     </div>
-</body>
-
-</html>
+    @endsection
